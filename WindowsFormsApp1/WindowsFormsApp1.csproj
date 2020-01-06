@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoctorPatient.cs" />
     <Compile Include="Zaloguj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +81,12 @@
     <Compile Include="Rejestrowanie.Designer.cs">
       <DependentUpon>Rejestrowanie.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZarejestrujPacjenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZarejestrujPacjenta.Designer.cs">
+      <DependentUpon>ZarejestrujPacjenta.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="rPatient.resx">
       <DependentUpon>rPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="Rejestrowanie.resx">
       <DependentUpon>Rejestrowanie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZarejestrujPacjenta.resx">
+      <DependentUpon>ZarejestrujPacjenta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

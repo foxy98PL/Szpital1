@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
             //wpisywanie do bazy danych
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VOF8MVF;Initial Catalog=Pacjent;database=Szpital;Integrated Security=True"); //Ustawianie scieżki połączenia
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Pacjent" + "(Imie,Nazwisko,Wiek,DataUrodzenia,Email,Telefon,Pesel,NrPolisy,Kraj,Miasto,KodPocztowy,NrDomu,Ulica)" + "Values(@Imie,@Nazwisko,@Wiek,@DataUrodzenia,@Email,@Telefon,@Pesel,@NrPolisy,@Kraj,@Miasto,@KodPocztowy,@NrDomu,@Ulica)", con); //Rządzanie SQL
+            SqlCommand cmd = new SqlCommand("INSERT INTO Pacjent" + "(Imie,Nazwisko,Wiek,DataUrodzenia,Email,Telefon,Pesel,NrPolisy,Kraj,Miasto,KodPocztowy,NrDomu,Ulica,Data)" + "Values(@Imie,@Nazwisko,@Wiek,@DataUrodzenia,@Email,@Telefon,@Pesel,@NrPolisy,@Kraj,@Miasto,@KodPocztowy,@NrDomu,@Ulica,@Data)", con); //Rządzanie SQL
 
             
          
@@ -49,8 +49,8 @@ namespace WindowsFormsApp1
             cmd.Parameters.Add("@KodPocztowy", System.Data.SqlDbType.VarChar);
             cmd.Parameters.Add("@Ulica", System.Data.SqlDbType.VarChar);
             cmd.Parameters.Add("@NrDomu", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Data", System.Data.SqlDbType.VarChar);
 
-     
 
 
             cmd.Parameters["@Imie"].Value = Convert.ToString(nowy.Imie);
@@ -66,7 +66,7 @@ namespace WindowsFormsApp1
             cmd.Parameters["@KodPocztowy"].Value = Convert.ToString(nowy.Kodpocztowy);
             cmd.Parameters["@Ulica"].Value = Convert.ToString(nowy.Ulica);
             cmd.Parameters["@NrDomu"].Value = Convert.ToString(nowy.NrDomu);
-
+            cmd.Parameters["@Data"].Value = Convert.ToString(DateTime.Now);
             con.Open();
             int RowsAffected = cmd.ExecuteNonQuery();
             con.Close();

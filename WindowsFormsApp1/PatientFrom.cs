@@ -24,5 +24,13 @@ namespace WindowsFormsApp1
             nowy.ShowDialog();
             this.Close();
         }
+
+        private void DodajDobadania_Click(object sender, EventArgs e)
+        {
+            ZarejestrujPacjenta nowy = new ZarejestrujPacjenta();
+            this.Hide();
+            nowy.ShowDialog();
+            this.Close();
+        }
     }
 }
