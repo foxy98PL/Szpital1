@@ -30,13 +30,14 @@
         {
             this.rPatientRegister = new System.Windows.Forms.Button();
             this.DodajDobadania = new System.Windows.Forms.Button();
+            this.tbPodlicz = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rPatientRegister
             // 
             this.rPatientRegister.Location = new System.Drawing.Point(12, 37);
             this.rPatientRegister.Name = "rPatientRegister";
-            this.rPatientRegister.Size = new System.Drawing.Size(237, 79);
+            this.rPatientRegister.Size = new System.Drawing.Size(237, 43);
             this.rPatientRegister.TabIndex = 0;
             this.rPatientRegister.Text = "Zarejestruj Pacjenta";
             this.rPatientRegister.UseVisualStyleBackColor = true;
@@ -44,19 +45,30 @@
             // 
             // DodajDobadania
             // 
-            this.DodajDobadania.Location = new System.Drawing.Point(12, 173);
+            this.DodajDobadania.Location = new System.Drawing.Point(12, 106);
             this.DodajDobadania.Name = "DodajDobadania";
-            this.DodajDobadania.Size = new System.Drawing.Size(237, 79);
+            this.DodajDobadania.Size = new System.Drawing.Size(237, 40);
             this.DodajDobadania.TabIndex = 1;
             this.DodajDobadania.Text = "DodajLeczenie";
             this.DodajDobadania.UseVisualStyleBackColor = true;
             this.DodajDobadania.Click += new System.EventHandler(this.DodajDobadania_Click);
+            // 
+            // tbPodlicz
+            // 
+            this.tbPodlicz.Location = new System.Drawing.Point(12, 168);
+            this.tbPodlicz.Name = "tbPodlicz";
+            this.tbPodlicz.Size = new System.Drawing.Size(237, 40);
+            this.tbPodlicz.TabIndex = 2;
+            this.tbPodlicz.Text = "Oblicz Kosz Pobytu";
+            this.tbPodlicz.UseVisualStyleBackColor = true;
+            this.tbPodlicz.Click += new System.EventHandler(this.TbPodlicz_Click);
             // 
             // PatientFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbPodlicz);
             this.Controls.Add(this.DodajDobadania);
             this.Controls.Add(this.rPatientRegister);
             this.Name = "PatientFrom";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button rPatientRegister;
         private System.Windows.Forms.Button DodajDobadania;
+        private System.Windows.Forms.Button tbPodlicz;
     }
 }

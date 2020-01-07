@@ -22,14 +22,14 @@ namespace WindowsFormsApp1
         private void TbRegister_Click(object sender, EventArgs e)
         {
             DoctorPatient nowy = new DoctorPatient(tbPesel.Text, tbDName.Text
-                ,tbDSN.Text,tbExamination.Text,tbPrice.Text,tbRef.Text,tbMail.Text);
+                , tbDSN.Text, tbExamination.Text, tbPrice.Text, tbRef.Text, tbMail.Text);
 
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VOF8MVF;Initial Catalog=RejestracjaLekarz;database=Szpital;Integrated Security=True"); //Ustawianie scieżki połączenia
             SqlCommand cmd = new SqlCommand("INSERT INTO RejestracjaLekarz" +
                 "(Pesel,LekarzImie,LekarzNazwisko,Rodzajbadania,Cena,CzyRefundowane,Email)"
                 + "VALUES(@Pesel,@LekarzImie,@LekarzNazwisko,@Rodzajbadania,@Cena,@CzyRefundowane,@Email)", con);
 
-            cmd.Parameters.Add("@Pesel",System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Pesel", System.Data.SqlDbType.VarChar);
             cmd.Parameters.Add("@LekarzImie", System.Data.SqlDbType.VarChar);
             cmd.Parameters.Add("@LekarzNazwisko", System.Data.SqlDbType.VarChar);
             cmd.Parameters.Add("@RodzajBadania", System.Data.SqlDbType.VarChar);
@@ -52,17 +52,18 @@ namespace WindowsFormsApp1
             try
             {
                 MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com"); //stmp serwera
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("login", "haslo");  //moj login haslo do poczty
+                SmtpServer.EnableSsl = true;
 
-                mail.From = new MailAddress("szpitaltesttc@gmail.com");
+                mail.From = new MailAddress("mail");  //mail z mojej poczty
                 mail.To.Add(nowy.email.ToString());
                 mail.Subject = "Rejestracja Pacjenta" + nowy.pesel.ToString(); ;
-                mail.Body = "Zarejestrowano do dr. "+nowy.docName.ToString() + nowy.docSName.ToString()+ " na badanie"+ nowy.medEx.ToString()
-                    + "koszt" +nowy.price.ToString()+ "dla pacjenta o peselu" +nowy.pesel.ToString() +" W razie błędnej wiadomości proszę usunąc maila";
+                mail.Body = "Zarejestrowano do dr. " + nowy.docName.ToString() + nowy.docSName.ToString() + " na badanie" + nowy.medEx.ToString()
+                    + "koszt" + nowy.price.ToString() + "dla pacjenta o peselu" + nowy.pesel.ToString() + " W razie błędnej wiadomości proszę usunąc maila";
 
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("szpitaltesttc@gmail.com", "PatapoN1212");
-                SmtpServer.EnableSsl = true;
+
 
                 SmtpServer.Send(mail);
                 MessageBox.Show("mail Send");
@@ -71,7 +72,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.ToString());
             }
-         
+
 
 
 

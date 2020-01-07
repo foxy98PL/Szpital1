@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
@@ -31,6 +32,11 @@ namespace WindowsFormsApp1
             this.Hide();
             nowy.ShowDialog();
             this.Close();
+        }
+
+        private void TbPodlicz_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

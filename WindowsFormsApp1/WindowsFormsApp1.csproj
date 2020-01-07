@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoctorPatient.cs" />
+    <Compile Include="PacjentWydatki.cs" />
     <Compile Include="Zaloguj.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
             SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM Logowanie WHERE Login='" + tLogin.Text + "' AND Haslo='" + tHaslo.Text + "'", con);
             DataTable dt = new DataTable(); 
             sda.Fill(dt);
-
+            Console.WriteLine(dt);
             Login = tLogin.Text;
 
 
